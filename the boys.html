@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Boys | Movies</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main">
+        <video src="video/The Boys Trailer.mp4" autoplay loop muted></video>
+        <nav>
+            <div class="logo">
+                <img src="img/logo.png" alt="">
+                <ul>
+                    <li><a id="home" href="index.html">Home</a></li>
+                    <li><a id="series" href="">Series</a></li>
+                    <li><a id="movies" href="">Movies</a></li>
+                    <li><a id="kids" href="">Kids</a></li>
+                </ul>
+                <ion-icon class="search_icon menu" name="menu-sharp"></ion-icon>
+            </div>
+            <div class="search_user">
+                <input type="text" id="search_input" placeholder="Search...">
+                <div class="search_result">
+                    <!-- <a href="#" class="card">
+                        <img src="img/6under.jpg" alt="">
+                        <div class="content">
+                            <h3>The Boys</h3>
+                            <p>Action 2024, <span>IMBD</span><ion-icon class="icon" name="star"></ion-icon>9.6</p>
+                        </div>
+                    </a> -->
+
+                </div>
+            </div>
+        </nav>
+        <div class="content">
+            <h1 id="title">Money Heist</h1>
+            <p>Money Heist has received critical acclaim and numerous awards, including an International Emmy Award for
+                Best Drama Series. It has also been praised for its suspenseful plot, complex characters, and social
+                commentary.</p>
+            <div class="details">
+                <h6>Netflix Orignal Film</h6>
+                <h5 id="gen">Thriller</h5>
+                <h4 id="date">2024</h4>
+                <h3 id="rate"><span>IMBD</span><ion-icon class="icon" name="star"></ion-icon>9.6</h3>
+            </div>
+            <div class="btns">
+                <a href="#" download="The Boys 480ph" id="low_q play">480ph</a>
+                <a href="#" download="The Boys 720ph" id="medium_q play">720ph</a>
+                <a href="#" download="The Boys 1080ph" id="high_q play">1080ph</a>
+                 
+            </div>
+        </div>
+        <section>
+            <h3>Popular</h3>
+            <ion-icon id="backward" name="chevron-back-outline"></ion-icon>
+            <ion-icon id="forward" name="chevron-forward-outline"></ion-icon>
+            <div class="cards">
+                <!-- <a href="#" class="card">
+                    <img src="img/abcd.jpg " alt="" class="poster">
+                    <div class="rest_card">
+                        <img src="img/a perfact.jpg" alt="">
+                        <div class="content">
+                            <h4>The Boys</h4>
+                            <div class="sub">
+                                <p>Action, 2024</p>
+                                <h3><span>IMBD</span><ion-icon class="icon" name="star"></ion-icon>9.6</h3>
+                            </div>
+                        </div>
+                    </div>
+                </a> -->
+            </div>
+        </section>
+    </div>
+
+ 
+
+    <!-- ionicons js link -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- JAVASCRIPT LINK  -->
+    <script src="script.js"></script>
+
+
+    <script>
+        fetch(json_url).then((Response)=>Response.json())
+        .then(data=>{
+            let movies_array = data.filter(ele => {
+                return ele.name === "The Boys";
+            });
+
+
+            document.getElementById('title').innerText = movies_array[0].name;
+            document.getElementById('low_q').href = movies_array[0].low;
+            document.getElementById('medium_q').href = movies_array[0].medium;
+            document.getElementById('high_q').href = movies_array[0].high;
+        document.getElementById('gen').innerText = movies_array[0].genre;
+        document.getElementById('date').innerText = movies_array[0].date;
+        document.getElementById('rate').innerHTML = `<span>IMBD</span><ion-icon class="icon" name="star"></ion-icon> ${movies_array[0].imdb}`;
+
+        })
+    </script>
+</body>
+
+</html>
